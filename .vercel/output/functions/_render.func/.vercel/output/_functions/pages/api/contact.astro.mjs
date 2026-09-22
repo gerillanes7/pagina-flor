@@ -2,7 +2,7 @@ import { Resend } from 'resend';
 export { renderers } from '../../renderers.mjs';
 
 const prerender = false;
-const TO = "germanillanes98@gmail.com";
+const TO = "florbordenave@gmail.com";
 const FROM = process.env.CONTACT_FROM_EMAIL || "Florencia <onboarding@resend.dev>";
 const SUBJECT_PREFIX = "[Florencia · web]";
 const resend = new Resend(process.env.RESEND_API_KEY);

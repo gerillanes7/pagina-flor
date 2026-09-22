@@ -1,6 +1,6 @@
 import { renderers } from './renderers.mjs';
 import { c as createExports } from './chunks/entrypoint_CORsAB6T.mjs';
-import { manifest } from './manifest_DC6yJG1e.mjs';
+import { manifest } from './manifest_DZLj6sVz.mjs';
 
 const _page0 = () => import('./pages/_image.astro.mjs');
 const _page1 = () => import('./pages/api/keystatic/_---params_.astro.mjs');
@@ -35,7 +35,7 @@ const _manifest = Object.assign(manifest, {
     middleware: () => import('./_astro-internal_middleware.mjs')
 });
 const _args = {
-    "middlewareSecret": "7a545fa8-6c65-4460-8495-83403f5e2f13"
+    "middlewareSecret": "25fa0ac4-c143-462b-9b14-7babd8328022"
 };
 const _exports = createExports(_manifest, _args);
 const __astrojsSsrVirtualEntry = _exports.default;

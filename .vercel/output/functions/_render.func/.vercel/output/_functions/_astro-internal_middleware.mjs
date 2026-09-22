@@ -12,6 +12,11 @@ function unauthorized() {
     }
   });
 }
+const NO_STORE = {
+  "Cache-Control": "no-store, no-cache, must-revalidate, private",
+  "Pragma": "no-cache",
+  "Expires": "0"
+};
 const onRequest$1 = defineMiddleware(async (context, next) => {
   if (!context.url.pathname.startsWith("/keystatic")) {
     return next();
@@ -19,25 +24,35 @@ const onRequest$1 = defineMiddleware(async (context, next) => {
   const user = process.env.KEYSTATIC_USER ?? "admin";
   const pass = process.env.KEYSTATIC_PASSWORD ?? "cambia-esta-clave";
   if (!user || !pass) {
-    return new Response("Not Found", { status: 404 });
+    const res = new Response("Not Found", { status: 404 });
+    Object.entries(NO_STORE).forEach(([k, v]) => res.headers.set(k, v));
+    return res;
   }
   const header = context.request.headers.get("authorization");
   if (!header || !header.toLowerCase().startsWith("basic ")) {
-    return unauthorized();
+    const res = unauthorized();
+    Object.entries(NO_STORE).forEach(([k, v]) => res.headers.set(k, v));
+    return res;
   }
   let decoded;
   try {
     decoded = atob(header.slice(6).trim());
   } catch {
-    return unauthorized();
+    const res = unauthorized();
+    Object.entries(NO_STORE).forEach(([k, v]) => res.headers.set(k, v));
+    return res;
   }
   const sep = decoded.indexOf(":");
   const providedUser = sep === -1 ? decoded : decoded.slice(0, sep);
   const providedPass = sep === -1 ? "" : decoded.slice(sep + 1);
   if (providedUser !== user || providedPass !== pass) {
-    return unauthorized();
+    const res = unauthorized();
+    Object.entries(NO_STORE).forEach(([k, v]) => res.headers.set(k, v));
+    return res;
   }
-  return next();
+  const response = await next();
+  Object.entries(NO_STORE).forEach(([k, v]) => response.headers.set(k, v));
+  return response;
 });
 
 const onRequest = sequence(

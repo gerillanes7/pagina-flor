@@ -18,6 +18,12 @@ function notConfigured(): Response {
   );
 }
 
+const NO_STORE = {
+  "Cache-Control": "no-store, no-cache, must-revalidate, private",
+  "Pragma": "no-cache",
+  "Expires": "0",
+};
+
 export const onRequest = defineMiddleware(async (context, next) => {
   if (!context.url.pathname.startsWith("/keystatic")) {
     return next();
@@ -28,21 +34,29 @@ export const onRequest = defineMiddleware(async (context, next) => {
 
   if (!user || !pass) {
     if (import.meta.env.DEV) {
-      return notConfigured();
+      const res = notConfigured();
+      Object.entries(NO_STORE).forEach(([k, v]) => res.headers.set(k, v));
+      return res;
     }
-    return new Response("Not Found", { status: 404 });
+    const res = new Response("Not Found", { status: 404 });
+    Object.entries(NO_STORE).forEach(([k, v]) => res.headers.set(k, v));
+    return res;
   }
 
   const header = context.request.headers.get("authorization");
   if (!header || !header.toLowerCase().startsWith("basic ")) {
-    return unauthorized();
+    const res = unauthorized();
+    Object.entries(NO_STORE).forEach(([k, v]) => res.headers.set(k, v));
+    return res;
   }
 
   let decoded: string;
   try {
     decoded = atob(header.slice(6).trim());
   } catch {
-    return unauthorized();
+    const res = unauthorized();
+    Object.entries(NO_STORE).forEach(([k, v]) => res.headers.set(k, v));
+    return res;
   }
 
   const sep = decoded.indexOf(":");
@@ -50,8 +64,12 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const providedPass = sep === -1 ? "" : decoded.slice(sep + 1);
 
   if (providedUser !== user || providedPass !== pass) {
-    return unauthorized();
+    const res = unauthorized();
+    Object.entries(NO_STORE).forEach(([k, v]) => res.headers.set(k, v));
+    return res;
   }
 
-  return next();
+  const response = await next();
+  Object.entries(NO_STORE).forEach(([k, v]) => response.headers.set(k, v));
+  return response;
 });
