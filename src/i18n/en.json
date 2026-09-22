@@ -1,0 +1,95 @@
+{
+  "site": {
+    "title": "Florencia — Painting",
+    "tagline": "Studio and work",
+    "description": "Florencia's studio and painting. Acquisitions and commissions."
+  },
+  "nav": {
+    "home": "Studio",
+    "work": "Work",
+    "studio": "Letter",
+    "contact": "Contact"
+  },
+  "home": {
+    "lead": "Florencia paints from her studio. Here is what she has today, what she is making, and how to write to her.",
+    "current": "In progress",
+    "available": "Available",
+    "reserved": "Reserved",
+    "sold": "Sold",
+    "seeAll": "See all work",
+    "ctaTitle": "For acquisitions and commissions",
+    "ctaBody": "If a piece speaks to you, or if you want to talk about a commission, write to her directly. No middlemen.",
+    "ctaButton": "Write to Florencia",
+    "cards": {
+      "work": {
+        "label": "Work",
+        "title": "A selection of paintings",
+        "body": "Finished or in-progress pieces, each with medium, dimensions, and availability."
+      },
+      "studio": {
+        "label": "About",
+        "title": "Letter from the studio",
+        "body": "How Florencia works, what she shows and what she does not, in her own words."
+      },
+      "contact": {
+        "label": "Contact",
+        "title": "For acquisitions and commissions",
+        "body": "Write to her directly. No middlemen, no closed form."
+      }
+    },
+    "about": {
+      "title": "About",
+      "lead": "Florencia paints from her studio. Here is how she works and why what leaves the studio stays in the studio until it is finished."
+    },
+    "contactSection": {
+      "title": "Contact",
+      "lead": "For acquisitions, commissions, or simply to write."
+    }
+  },
+  "work": {
+    "indexTitle": "Work",
+    "indexLead": "A selection of finished and in-progress pieces. Each entry lists medium, dimensions, and availability.",
+    "plate": "Plate",
+    "title": "Title",
+    "year": "Year",
+    "medium": "Medium",
+    "dimensions": "Dimensions",
+    "availability": "Availability",
+    "inquiry": "Inquire about this piece",
+    "back": "Back to the work"
+  },
+  "studio": {
+    "title": "Letter from the studio",
+    "letter": [
+      "I work in oil and acrylic on canvas, and sometimes on board. I paint almost every day; what leaves the studio stays in the studio until it is finished.",
+      "The pieces you see here are the ones I have decided to show. There is no inventory: each work is one of one.",
+      "If something interests you, write. If you want to talk about a commission, write. I am direct; let us both be."
+    ],
+    "signature": "Florencia",
+    "cv": "Exhibitions, publications, and awards",
+    "press": "Press",
+    "bio": "About the painter",
+    "emptyBio": "Biography to be added — Florencia will provide it.",
+    "emptyCV": "CV to be added — no dates will be invented.",
+    "emptyPress": "Press list to be added — no quotes will be invented."
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "For acquisitions, commissions, or simply to write.",
+    "email": "Email",
+    "instagram": "Instagram",
+    "atelier": "Studio",
+    "atelierValue": "Visits by appointment",
+    "formTitle": "Or write to her",
+    "formName": "Your name",
+    "formEmail": "Your email",
+    "formSubject": "Subject",
+    "formBody": "Message",
+    "formSubmit": "Send",
+    "formNote": "The form sends by mail; your message reaches Florencia directly."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "site": "Studio and work of Florencia."
+  }
+}

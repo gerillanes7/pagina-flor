@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="es"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v4.16.19"><title>Florencia — Pintura</title><meta name="description" content="El estudio y la obra de Florencia, pintora. Adquisición y encargos."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" hreflang="es" href="https://florencia.example/es//studio/"><link rel="alternate" hreflang="en" href="https://florencia.example/en//studio/"><meta property="og:title" content="Florencia — Pintura"><meta property="og:description" content="El estudio y la obra de Florencia, pintora. Adquisición y encargos."><meta property="og:type" content="website"><link rel="stylesheet" href="/_astro/contact.CCYytLDa.css"></head> <body class=""> <a class="skip-link" href="#main">Saltar al contenido</a> <header class="nav" aria-label="Principal"> <div class="nav__row"> <div class="nav__lang" aria-label="Idioma"> <a href="/es/studio/" aria-current="true">ES</a> <span class="nav__lang-sep" aria-hidden="true">/</span> <a href="/en/studio/">EN</a> </div> <a class="nav__brand" href="/es/">Florencia</a> <span class="nav__utility">Madrid · Estudio</span> </div> <div class="container"> <nav aria-label="Secciones"> <ul class="nav__links" role="list"> <li> <a class="nav__link" href="/es/">Estudio</a> </li><li> <a class="nav__link" href="/es/work/">Obra</a> </li><li> <a class="nav__link" href="/es/studio/" aria-current="page">Carta</a> </li><li> <a class="nav__link" href="/es/contact/">Contacto</a> </li> </ul> </nav> </div> </header> <main id="main">  <div class="container"> <header class="page-head"> <h1 class="page-head__title">Carta del estudio</h1> <p class="page-head__lead">Florencia pinta desde su estudio. Aquí está cómo trabaja y por qué lo que sale del estudio se queda en el estudio hasta que está terminado.</p> </header> </div> <div class="container"> <div class="two-col"> <div class="two-col__text stack stack--lg"> <div class="letter"> <p>Trabajo en aceite y acrílico sobre lienzo, y de vez en cuando sobre tabla. Pinto casi todos los días; lo que sale del estudio se queda en el estudio hasta que está terminado.</p><p>Las piezas que ves aquí son las que decido mostrar. No hay inventario: cada obra es una.</p><p>Si te interesa algo, escríbeme. Si quieres hablar sobre un encargo, también. Soy directa, así que intentemos serlo los dos.</p> <p class="letter__sign">— Florencia, 22 de septiembre de 2026</p> </div> <div> <span class="section-label">Sobre la pintora</span> <span class="section-rule" style="margin-top: var(--space-3);"></span> <p class="empty" style="margin-top: var(--space-4);">Biografía por añadir — Florencia nos la hará llegar.</p> </div> <div> <span class="section-label">Exposiciones, publicaciones y premios</span> <span class="section-rule" style="margin-top: var(--space-3);"></span> <p class="empty" style="margin-top: var(--space-4);">Currículum por añadir — sin fechas inventadas.</p> </div> <div> <span class="section-label">Prensa</span> <span class="section-rule" style="margin-top: var(--space-3);"></span> <p class="empty" style="margin-top: var(--space-4);">Listado de prensa por añadir — sin citas inventadas.</p> </div> </div> <aside class="two-col__image" aria-hidden="false" aria-label="Estudio de Florencia"> <img src="/banners/contacto-banner.svg" alt=""> </aside> </div> </div>  </main> <footer class="footer"> <div class="container footer__row"> <span>Estudio y obra de Florencia.</span> <span>© 2026 · Todos los derechos reservados.</span> </div> </footer> <script>
+      (function () {
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var supportsIO = 'IntersectionObserver' in window;
+
+        var targets = document.querySelectorAll(
+          '.section, .stack, .work-grid, .cluster, .letter, .contact__channels, .cv-list, .press-list, .selection__grid, .footer__row'
+        );
+
+        var reveals = [];
+        targets.forEach(function (el) {
+          for (var i = 0; i < el.children.length; i++) {
+            var child = el.children[i];
+            child.classList.add('reveal');
+            reveals.push(child);
+          }
+        });
+
+        if (reduced || !supportsIO) {
+          reveals.forEach(function (el) { el.classList.add('is-visible'); });
+          return;
+        }
+
+        // Fire for elements already in view, and use a generous rootMargin so
+        // elements just outside the viewport trigger without a real scroll
+        // (and so headless capture tools don't leave them opacity:0).
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px 100% 0px', threshold: 0 }
+        );
+
+        reveals.forEach(function (el) { io.observe(el); });
+      })();
+    </script> </body> </html>

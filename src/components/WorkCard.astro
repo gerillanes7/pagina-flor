@@ -1,0 +1,37 @@
+---
+import Painting from "./Painting.astro";
+import { resolveImage, type WorkEntry } from "../lib/content";
+
+const { entry, locale, t, showPlate = true } = Astro.props as {
+  entry: WorkEntry;
+  locale: "es" | "en";
+  t: any;
+  showPlate?: boolean;
+};
+
+const data = entry.data;
+const availKey = data.availability === "current" ? "current" : data.availability;
+const availLabel = (t.home as any)[availKey] ?? data.availability;
+---
+
+<a class="work-card" href={`/${locale}/work/${data.slug}/`} aria-label={`${data.title[locale]} — ${data.year}, ${data.medium[locale]}`}>
+  <div class="work-card__media">
+    <Painting src={resolveImage(data.image)} alt={`${data.title[locale]} — ${data.year}, ${data.medium[locale]}, ${data.dimensions}`} />
+    {showPlate && <span class="work-card__plate">№ {data.plate}</span>}
+  </div>
+  <div class="work-card__meta">
+    <div class="work-card__title">{data.title[locale]}</div>
+    <div class="work-card__sub">
+      <span>{data.year}</span>
+      <span aria-hidden="true"> · </span>
+      <span>{data.medium[locale]}</span>
+      <span aria-hidden="true"> · </span>
+      <span>{data.dimensions}</span>
+    </div>
+    {availKey === "current" ? (
+      <div class="work-card__sub work-card__sub--current">{availLabel}</div>
+    ) : (
+      <div class="work-card__sub">{availLabel}</div>
+    )}
+  </div>
+</a>

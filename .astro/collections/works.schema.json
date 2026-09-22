@@ -1,0 +1,98 @@
+{
+  "$ref": "#/definitions/works",
+  "definitions": {
+    "works": {
+      "type": "object",
+      "properties": {
+        "slug": {
+          "type": "string"
+        },
+        "plate": {
+          "type": "string"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "title": {
+          "type": "object",
+          "properties": {
+            "es": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "es",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "year": {
+          "type": "integer"
+        },
+        "medium": {
+          "type": "object",
+          "properties": {
+            "es": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "es",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "dimensions": {
+          "type": "string"
+        },
+        "availability": {
+          "type": "string",
+          "enum": [
+            "available",
+            "reserved",
+            "sold",
+            "current"
+          ]
+        },
+        "image": {
+          "type": "string"
+        },
+        "note": {
+          "type": "object",
+          "properties": {
+            "es": {
+              "type": "string"
+            },
+            "en": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "slug",
+        "plate",
+        "order",
+        "title",
+        "year",
+        "medium",
+        "dimensions",
+        "availability",
+        "image"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

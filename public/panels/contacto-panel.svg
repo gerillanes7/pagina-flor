@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Fragmento de una pintura — Contacto">
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A1A12"/>
+      <stop offset="0.5" stop-color="#3D2418"/>
+      <stop offset="1" stop-color="#5A3320"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="#EDE3D2" stop-opacity="0.55"/>
+      <stop offset="0.3" stop-color="#C8B294" stop-opacity="0.35"/>
+      <stop offset="0.7" stop-color="#6B5848" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="warm" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#6E2A2A" stop-opacity="0.5"/>
+      <stop offset="0.6" stop-color="#6E2A2A" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="figure" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EDE3D2"/>
+      <stop offset="1" stop-color="#A38C6B"/>
+    </linearGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="17"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.2 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="brush" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="turbulence" baseFrequency="0.022 0.16" numOctaves="2" seed="21"/>
+      <feDisplacementMap in="SourceGraphic" scale="20"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#ground)"/>
+
+  <!-- Atmospheric halo around the figure -->
+  <rect width="1600" height="900" fill="url(#halo)"/>
+
+  <!-- Bottom warm wash — oxblood earth -->
+  <rect x="0" y="500" width="1600" height="400" fill="url(#warm)"/>
+
+  <!-- Painterly figure — silhouette emerging into light -->
+  <g filter="url(#brush)" opacity="0.95">
+    <!-- Head -->
+    <ellipse cx="800" cy="340" rx="76" ry="100" fill="url(#figure)"/>
+    <!-- Neck and shoulders -->
+    <path d="M 720 430 Q 800 410 880 430 Q 940 480 960 580 Q 940 660 880 700 Q 800 720 720 700 Q 660 660 640 580 Q 660 480 720 430 Z" fill="#EDE3D2" opacity="0.85"/>
+    <!-- Body / dress falling into shadow -->
+    <path d="M 660 580 Q 800 540 940 580 Q 1000 700 980 880 L 620 880 Q 600 700 660 580 Z" fill="#3D2418"/>
+    <path d="M 720 700 Q 800 680 880 700 Q 920 800 900 900 L 700 900 Q 680 800 720 700 Z" fill="#2A1A12"/>
+    <!-- Folds and shadow strokes -->
+    <path d="M 680 620 Q 760 600 840 620" stroke="#1A0F08" stroke-width="3" fill="none" opacity="0.7"/>
+    <path d="M 700 720 Q 780 700 860 720" stroke="#1A0F08" stroke-width="3" fill="none" opacity="0.6"/>
+    <path d="M 760 380 Q 800 360 840 380" stroke="#3D2418" stroke-width="3" fill="none" opacity="0.7"/>
+  </g>
+
+  <!-- Bold oxblood stroke across — a painter's gesture -->
+  <g filter="url(#brush)" opacity="0.85">
+    <path d="M 80 220 Q 280 180 480 220 Q 680 260 880 220" stroke="#6E2A2A" stroke-width="20" fill="none" stroke-linecap="round"/>
+    <path d="M 920 700 Q 1100 660 1280 700 Q 1460 740 1560 700" stroke="#6E2A2A" stroke-width="16" fill="none" stroke-linecap="round" opacity="0.7"/>
+  </g>
+
+  <!-- Distant painterly landscape below the figure — painter's world -->
+  <g filter="url(#brush)" opacity="0.55">
+    <path d="M 0 780 Q 240 740 480 760 T 960 740 T 1440 760 T 1600 780 L 1600 900 L 0 900 Z" fill="#5A3320"/>
+    <path d="M 0 820 Q 200 790 480 800 T 960 790 T 1440 800 T 1600 810 L 1600 900 L 0 900 Z" fill="#3D2418"/>
+  </g>
+
+  <!-- Painter's edge — a hint of frame in umber -->
+  <rect x="4" y="4" width="1592" height="892" fill="none" stroke="#3D2418" stroke-width="2" opacity="0.5"/>
+
+  <!-- Grain overlay -->
+  <rect width="1600" height="900" filter="url(#grain)" opacity="0.55"/>
+</svg>

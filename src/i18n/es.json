@@ -1,0 +1,95 @@
+{
+  "site": {
+    "title": "Florencia — Pintura",
+    "tagline": "Estudio y obra",
+    "description": "El estudio y la obra de Florencia, pintora. Adquisición y encargos."
+  },
+  "nav": {
+    "home": "Estudio",
+    "work": "Obra",
+    "studio": "Carta",
+    "contact": "Contacto"
+  },
+  "home": {
+    "lead": "Florencia pinta desde su estudio. Aquí está lo que tiene hoy, lo que está haciendo, y cómo escribirle.",
+    "current": "Trabajo en curso",
+    "available": "Disponible",
+    "reserved": "Reservada",
+    "sold": "Vendida",
+    "seeAll": "Ver toda la obra",
+    "ctaTitle": "Para adquisiciones y encargos",
+    "ctaBody": "Si una pieza te interesa o quieres hablar sobre un encargo, escríbele directamente. Sin intermediarios.",
+    "ctaButton": "Escribir a Florencia",
+    "cards": {
+      "work": {
+        "label": "Obra",
+        "title": "Selección de pinturas",
+        "body": "Pieza terminada o en proceso, con ficha, técnica y disponibilidad."
+      },
+      "studio": {
+        "label": "Sobre mí",
+        "title": "Carta del estudio",
+        "body": "Cómo trabaja Florencia, qué muestra y qué no, en sus propias palabras."
+      },
+      "contact": {
+        "label": "Contacto",
+        "title": "Para adquisiciones y encargos",
+        "body": "Escríbele directamente. Sin intermediarios, sin formulario cerrado."
+      }
+    },
+    "about": {
+      "title": "Sobre mí",
+      "lead": "Florencia pinta desde su estudio. Aquí está cómo trabaja y por qué lo que sale del estudio se queda en el estudio hasta que está terminado."
+    },
+    "contactSection": {
+      "title": "Contacto",
+      "lead": "Para adquisiciones, encargos, o simplemente para escribir."
+    }
+  },
+  "work": {
+    "indexTitle": "Obra",
+    "indexLead": "Una selección de piezas terminadas y en proceso. Cada ficha indica técnica, dimensiones y disponibilidad.",
+    "plate": "Plancha",
+    "title": "Título",
+    "year": "Año",
+    "medium": "Técnica",
+    "dimensions": "Dimensiones",
+    "availability": "Disponibilidad",
+    "inquiry": "Consultar por esta pieza",
+    "back": "Volver a la obra"
+  },
+  "studio": {
+    "title": "Carta del estudio",
+    "letter": [
+      "Trabajo en aceite y acrílico sobre lienzo, y de vez en cuando sobre tabla. Pinto casi todos los días; lo que sale del estudio se queda en el estudio hasta que está terminado.",
+      "Las piezas que ves aquí son las que decido mostrar. No hay inventario: cada obra es una.",
+      "Si te interesa algo, escríbeme. Si quieres hablar sobre un encargo, también. Soy directa, así que intentemos serlo los dos."
+    ],
+    "signature": "Florencia",
+    "cv": "Exposiciones, publicaciones y premios",
+    "press": "Prensa",
+    "bio": "Sobre la pintora",
+    "emptyBio": "Biografía por añadir — Florencia nos la hará llegar.",
+    "emptyCV": "Currículum por añadir — sin fechas inventadas.",
+    "emptyPress": "Listado de prensa por añadir — sin citas inventadas."
+  },
+  "contact": {
+    "title": "Contacto",
+    "lead": "Para adquisiciones, encargos, o simplemente para escribir.",
+    "email": "Correo",
+    "instagram": "Instagram",
+    "atelier": "Estudio",
+    "atelierValue": "Visitas con cita previa",
+    "formTitle": "O escríbele",
+    "formName": "Tu nombre",
+    "formEmail": "Tu correo",
+    "formSubject": "Asunto",
+    "formBody": "Mensaje",
+    "formSubmit": "Enviar",
+    "formNote": "El formulario se enviará por correo; tu mensaje llega directamente a Florencia."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "site": "Estudio y obra de Florencia."
+  }
+}

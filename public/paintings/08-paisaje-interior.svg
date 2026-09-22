@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Placeholder painting, Interior landscape, acrylic on canvas, 160 by 120 centimetres." preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky-8" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3D2418"/>
+      <stop offset="1" stop-color="#5C3C28"/>
+    </linearGradient>
+    <linearGradient id="horizon-8" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6E2A2A"/>
+      <stop offset="1" stop-color="#4A1818"/>
+    </linearGradient>
+    <linearGradient id="middle-8" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A38C6B"/>
+      <stop offset="1" stop-color="#7A6448"/>
+    </linearGradient>
+    <linearGradient id="foreground-8" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EDE3D2"/>
+      <stop offset="1" stop-color="#C8B294"/>
+    </linearGradient>
+    <filter id="grain-8">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="37"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.06 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- Sky (top third) -->
+  <rect width="800" height="320" fill="url(#sky-8)"/>
+
+  <!-- Distant horizon -->
+  <rect y="320" width="800" height="100" fill="url(#horizon-8)"/>
+  <!-- Soft transition between sky and horizon -->
+  <rect y="310" width="800" height="20" fill="url(#horizon-8)" opacity="0.6"/>
+
+  <!-- Mid hills -->
+  <path d="M0,420 C140,380 280,440 420,400 C560,360 700,420 800,400 L800,560 L0,560 Z" fill="url(#middle-8)"/>
+
+  <!-- Foreground field -->
+  <path d="M0,560 C160,540 320,580 500,560 C640,548 720,560 800,560 L800,1000 L0,1000 Z" fill="url(#foreground-8)"/>
+
+  <!-- Path through foreground -->
+  <path d="M380,560 C400,640 420,740 400,1000 L440,1000 C460,740 440,640 420,560 Z" fill="#A38C6B" opacity="0.7"/>
+
+  <!-- A small structure mid-distance -->
+  <rect x="180" y="490" width="40" height="60" fill="#3D2418" opacity="0.85"/>
+  <path d="M170,490 L200,470 L230,490 Z" fill="#2A1A12"/>
+
+  <!-- Distant trees, abstracted -->
+  <g opacity="0.7">
+    <ellipse cx="640" cy="450" rx="14" ry="22" fill="#3D2418"/>
+    <ellipse cx="670" cy="455" rx="11" ry="18" fill="#3D2418"/>
+    <ellipse cx="700" cy="448" rx="13" ry="20" fill="#3D2418"/>
+  </g>
+
+  <!-- A few foreground marks (low grass) -->
+  <g stroke="#3D2418" stroke-width="1.4" opacity="0.55" fill="none">
+    <line x1="60" y1="780" x2="62" y2="760"/>
+    <line x1="80" y1="800" x2="82" y2="780"/>
+    <line x1="100" y1="780" x2="102" y2="760"/>
+    <line x1="120" y1="820" x2="122" y2="800"/>
+    <line x1="160" y1="800" x2="162" y2="780"/>
+    <line x1="200" y1="780" x2="202" y2="760"/>
+    <line x1="240" y1="820" x2="242" y2="800"/>
+    <line x1="280" y1="800" x2="282" y2="780"/>
+    <line x1="600" y1="780" x2="602" y2="760"/>
+    <line x1="640" y1="820" x2="642" y2="800"/>
+    <line x1="680" y1="780" x2="682" y2="760"/>
+    <line x1="720" y1="800" x2="722" y2="780"/>
+  </g>
+
+  <!-- Subtle warm light at horizon -->
+  <ellipse cx="400" cy="400" rx="200" ry="40" fill="#B85C3F" opacity="0.35"/>
+
+  <rect width="800" height="1000" filter="url(#grain-8)" opacity="0.5"/>
+</svg>

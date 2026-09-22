@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Pared del taller: superficie plana de color hueso con un riel de cuadros cerca del techo y dos paisajes enmarcados colgados, uno grande a la izquierda y otro menor a la derecha." preserveAspectRatio="xMidYMid slice">
+
+  <!-- Pared plana del taller, un solo tono. -->
+  <rect width="1600" height="900" fill="#EDE3D2"/>
+
+  <!-- Riel de cuadros: línea fina de madera (umber) cerca del techo. -->
+  <rect x="0" y="118" width="1600" height="2" fill="#3D2418" opacity="0.3"/>
+
+  <!-- Ganchos sobre el riel, donde se sujetan los cables. -->
+  <rect x="539" y="114" width="3" height="7" fill="#3D2418" opacity="0.55"/>
+  <rect x="1019" y="114" width="3" height="7" fill="#3D2418" opacity="0.55"/>
+  <rect x="1139" y="114" width="3" height="7" fill="#3D2418" opacity="0.55"/>
+  <rect x="1439" y="114" width="3" height="7" fill="#3D2418" opacity="0.55"/>
+
+  <!-- ========== Cuadro I (dominante, colgado del riel) ========== -->
+  <g>
+    <!-- Cables de colgar: del riel a los extremos superiores del marco. -->
+    <line x1="540" y1="121" x2="540" y2="220" stroke="#3D2418" stroke-width="0.8" opacity="0.5"/>
+    <line x1="1020" y1="121" x2="1020" y2="220" stroke="#3D2418" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- Marco de madera real (umber). -->
+    <rect x="534" y="216" width="492" height="488" fill="#3D2418"/>
+    <!-- Tela del lienzo. -->
+    <rect x="544" y="226" width="472" height="468" fill="#EDE3D2"/>
+
+    <!-- Paisaje amplio y sobrio: cielo de hueso, tierra de putty, lomas de umber, sol oxblood al horizonte. -->
+    <g>
+      <!-- Haze atmosférico justo sobre el horizonte. -->
+      <rect x="544" y="422" width="472" height="16" fill="#E2D6BF" opacity="0.6"/>
+      <!-- Tierra. -->
+      <rect x="544" y="438" width="472" height="256" fill="#C8B294"/>
+      <!-- Loma lejana: silueta amplia y baja. -->
+      <path d="M548,438 C640,422 740,418 840,426 C920,432 980,436 1012,440 L1012,452 L548,452 Z" fill="#3D2418" opacity="0.55"/>
+      <!-- Loma intermedia. -->
+      <path d="M548,448 C700,440 860,446 1012,450 L1012,466 L548,466 Z" fill="#A38C6B" opacity="0.5"/>
+      <!-- Sol oxblood sobrio sobre el horizonte (acento único del cuadro). -->
+      <ellipse cx="760" cy="436" rx="46" ry="14" fill="#B85C3F" opacity="0.22"/>
+      <ellipse cx="760" cy="436" rx="26" ry="8" fill="#6E2A2A" opacity="0.55"/>
+      <!-- Árbol distante (único ancla vertical). -->
+      <line x1="602" y1="408" x2="602" y2="438" stroke="#3D2418" stroke-width="2.5" opacity="0.65"/>
+      <ellipse cx="602" cy="402" rx="14" ry="11" fill="#3D2418" opacity="0.6"/>
+      <!-- Surcos de primer plano: líneas finas y sobrias. -->
+      <path d="M560,612 C700,608 900,614 1010,610" stroke="#3D2418" stroke-width="2" fill="none" opacity="0.25"/>
+      <path d="M560,652 C720,648 900,654 1010,650" stroke="#A38C6B" stroke-width="1.5" fill="none" opacity="0.28"/>
+      <path d="M560,682 C700,678 880,684 1010,680" stroke="#A38C6B" stroke-width="1.5" fill="none" opacity="0.32"/>
+    </g>
+
+    <!-- Número de plancha, mono, esquina superior izquierda del marco. -->
+    <text x="560" y="250" font-family="JetBrains Mono, IBM Plex Mono, monospace" font-size="14" fill="#EDE3D2" opacity="0.6" letter-spacing="0.18em">№ I</text>
+
+    <!-- Sombra proyectada mínima bajo el marco (profundidad real, sin halo). -->
+    <rect x="544" y="708" width="472" height="3" fill="#2A1A12" opacity="0.2"/>
+  </g>
+
+  <!-- ========== Cuadro II (menor, colgado a la derecha) ========== -->
+  <g>
+    <!-- Cables de colgar. -->
+    <line x1="1140" y1="121" x2="1140" y2="260" stroke="#3D2418" stroke-width="0.8" opacity="0.5"/>
+    <line x1="1440" y1="121" x2="1440" y2="260" stroke="#3D2418" stroke-width="0.8" opacity="0.5"/>
+
+    <!-- Marco de madera. -->
+    <rect x="1134" y="256" width="312" height="408" fill="#3D2418"/>
+    <!-- Tela del lienzo (cielo del paisaje íntimo). -->
+    <rect x="1144" y="266" width="292" height="388" fill="#EDE3D2"/>
+
+    <!-- Paisaje íntimo: un árbol cercano y dominante sobre cielo de hueso y tierra de putty. -->
+    <g>
+      <!-- Haze sobre el horizonte. -->
+      <rect x="1144" y="496" width="292" height="14" fill="#E2D6BF" opacity="0.6"/>
+      <!-- Tierra. -->
+      <rect x="1144" y="508" width="292" height="146" fill="#C8B294"/>
+      <!-- Tronco del árbol (ligero afilado). -->
+      <path d="M1275,510 L1273,442 L1283,442 L1281,510 Z" fill="#3D2418" opacity="0.85"/>
+      <!-- Copa: base principal. -->
+      <ellipse cx="1280" cy="400" rx="86" ry="74" fill="#3D2418" opacity="0.7"/>
+      <!-- Copa: lóbulos orgánicos superpuestos. -->
+      <ellipse cx="1280" cy="358" rx="56" ry="40" fill="#3D2418" opacity="0.6"/>
+      <ellipse cx="1240" cy="416" rx="48" ry="40" fill="#3D2418" opacity="0.65"/>
+      <ellipse cx="1322" cy="412" rx="50" ry="42" fill="#3D2418" opacity="0.65"/>
+      <!-- Acentos cálidos en el follaje (detalle íntimo). -->
+      <ellipse cx="1310" cy="372" rx="18" ry="12" fill="#B85C3F" opacity="0.4"/>
+      <ellipse cx="1255" cy="428" rx="14" ry="9" fill="#6E2A2A" opacity="0.45"/>
+      <!-- Sombra del árbol sobre la tierra. -->
+      <ellipse cx="1280" cy="548" rx="62" ry="8" fill="#2A1A12" opacity="0.2"/>
+      <!-- Hierba en primer plano. -->
+      <path d="M1180,622 C1240,618 1320,624 1410,620" stroke="#3D2418" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <path d="M1190,642 C1260,638 1340,644 1400,640" stroke="#A38C6B" stroke-width="1.5" fill="none" opacity="0.35"/>
+    </g>
+
+    <!-- Número de plancha, mono. -->
+    <text x="1424" y="290" font-family="JetBrains Mono, IBM Plex Mono, monospace" font-size="11" fill="#EDE3D2" opacity="0.55" letter-spacing="0.18em" text-anchor="end">№ II</text>
+
+    <!-- Sombra proyectada mínima. -->
+    <rect x="1144" y="658" width="292" height="3" fill="#2A1A12" opacity="0.2"/>
+  </g>
+</svg>

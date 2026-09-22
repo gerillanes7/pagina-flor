@@ -1,0 +1,141 @@
+---
+import "../styles/global.css";
+
+const {
+  locale,
+  t,
+  title,
+  description,
+  bodyClass = "",
+} = Astro.props as {
+  locale: "es" | "en";
+  t: any;
+  title?: string;
+  description?: string;
+  bodyClass?: string;
+};
+
+const fullTitle = title ? `${title} — ${t.site.title}` : t.site.title;
+const desc = description ?? t.site.description;
+const navItems = [
+  { href: `/${locale}/`, label: t.nav.home, key: "home" },
+  { href: `/${locale}/work/`, label: t.nav.work, key: "work" },
+  { href: `/${locale}/studio/`, label: t.nav.studio, key: "studio" },
+  { href: `/${locale}/contact/`, label: t.nav.contact, key: "contact" },
+];
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentKey =
+  navItems
+    .map((i) => ({ ...i, score: pathname.startsWith(i.href) ? i.href.length : 0 }))
+    .sort((a, b) => b.score - a.score)[0]?.key ?? "home";
+
+const altLocale = locale === "es" ? "en" : "es";
+const altPath = pathname.replace(/^\/(es|en)/, `/${altLocale}`);
+
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" hreflang="es" href={`https://florencia.example/es/${pathname.replace(/^\/(es|en)/, "")}`} />
+    <link rel="alternate" hreflang="en" href={`https://florencia.example/en/${pathname.replace(/^\/(es|en)/, "")}`} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body class={bodyClass}>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+
+    <header class="nav" aria-label="Principal">
+      <div class="nav__row">
+        <div class="nav__lang" aria-label="Idioma">
+          <a
+            href={pathname}
+            aria-current={locale === "es" ? "true" : undefined}
+          >ES</a>
+          <span class="nav__lang-sep" aria-hidden="true">/</span>
+          <a
+            href={altPath}
+            aria-current={locale === "en" ? "true" : undefined}
+          >EN</a>
+        </div>
+        <a class="nav__brand" href={`/${locale}/`}>Florencia</a>
+      </div>
+      <div class="container">
+        <nav aria-label="Secciones">
+          <ul class="nav__links" role="list">
+            {navItems.map((item) => (
+              <li>
+                <a
+                  class="nav__link"
+                  href={item.href}
+                  aria-current={currentKey === item.key ? "page" : undefined}
+                >{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__row">
+        <span>{t.footer.site}</span>
+        <span>© {new Date().getFullYear()} · {t.footer.rights}</span>
+      </div>
+    </footer>
+
+    <script is:inline>
+      (function () {
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var supportsIO = 'IntersectionObserver' in window;
+
+        var targets = document.querySelectorAll(
+          '.section, .stack, .work-grid, .cluster, .letter, .contact__channels, .cv-list, .press-list, .selection__grid, .footer__row'
+        );
+
+        var reveals = [];
+        targets.forEach(function (el) {
+          for (var i = 0; i < el.children.length; i++) {
+            var child = el.children[i];
+            child.classList.add('reveal');
+            reveals.push(child);
+          }
+        });
+
+        if (reduced || !supportsIO) {
+          reveals.forEach(function (el) { el.classList.add('is-visible'); });
+          return;
+        }
+
+        // Fire for elements already in view, and use a generous rootMargin so
+        // elements just outside the viewport trigger without a real scroll
+        // (and so headless capture tools don't leave them opacity:0).
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px 100% 0px', threshold: 0 }
+        );
+
+        reveals.forEach(function (el) { io.observe(el); });
+      })();
+    </script>
+  </body>
+</html>

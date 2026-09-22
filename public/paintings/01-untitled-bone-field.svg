@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Placeholder painting, Untitled (bone field), acrylic and oil on canvas, 120 by 100 centimetres." preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bone-1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EDE3D2"/>
+      <stop offset="1" stop-color="#E2D6BF"/>
+    </linearGradient>
+    <linearGradient id="putty-1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C8B294"/>
+      <stop offset="1" stop-color="#A38C6B"/>
+    </linearGradient>
+    <linearGradient id="horizon-1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3D2418" stop-opacity="0"/>
+      <stop offset="0.2" stop-color="#3D2418" stop-opacity="0.85"/>
+      <stop offset="0.8" stop-color="#3D2418" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#3D2418" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="grain-1" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3"/>
+      <feColorMatrix values="0 0 0 0 0.18  0 0 0 0 0.10  0 0 0 0 0.05  0 0 0 0.06 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- Upper bone field -->
+  <rect width="800" height="600" fill="url(#bone-1)"/>
+
+  <!-- Subtle brushwork in upper field -->
+  <rect x="0" y="0" width="800" height="600" fill="url(#bone-1)" opacity="0.0"/>
+  <path d="M0,80 C200,140 380,40 600,120 C720,160 780,90 800,110 L800,0 L0,0 Z" fill="#F1E8D7" opacity="0.55"/>
+  <path d="M0,260 C160,210 360,300 540,250 C700,210 760,260 800,250 L800,180 L0,200 Z" fill="#E6D9C0" opacity="0.4"/>
+
+  <!-- Soft putty lower field -->
+  <rect y="540" width="800" height="460" fill="url(#putty-1)"/>
+  <path d="M0,540 C120,560 360,520 540,560 C680,580 760,540 800,560 L800,1000 L0,1000 Z" fill="#A38C6B" opacity="0.6"/>
+
+  <!-- Horizon line, drawn by hand -->
+  <rect y="585" width="800" height="6" fill="url(#horizon-1)"/>
+  <path d="M40,590 C220,584 420,592 620,586 C720,584 780,590 800,588" stroke="#3D2418" stroke-width="2" fill="none" opacity="0.7"/>
+  <path d="M60,594 C260,590 480,598 680,592" stroke="#3D2418" stroke-width="1" fill="none" opacity="0.45"/>
+
+  <!-- Oxblood mark, lower right -->
+  <rect x="540" y="730" width="120" height="110" fill="#6E2A2A" opacity="0.9"/>
+  <rect x="538" y="728" width="124" height="114" fill="none" stroke="#3D2418" stroke-width="1" opacity="0.4"/>
+  <path d="M540,732 Q600,720 660,734 Q662,790 658,840 Q600,846 540,840 Z" fill="#8A3838" opacity="0.5"/>
+
+  <!-- Subtle grain overlay -->
+  <rect width="800" height="1000" filter="url(#grain-1)" opacity="0.7"/>
+</svg>

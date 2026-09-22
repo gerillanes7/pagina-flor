@@ -1,0 +1,33 @@
+---
+import Base from "../../../layouts/Base.astro";
+import WorkCard from "../../../components/WorkCard.astro";
+import { listWorks } from "../../../lib/content";
+import es from "../../../i18n/es.json";
+import en from "../../../i18n/en.json";
+
+export async function getStaticPaths() {
+  return [{ params: { locale: "es" } }, { params: { locale: "en" } }];
+}
+
+const { locale } = Astro.params as { locale: "es" | "en" };
+const t = locale === "es" ? es : en;
+
+const works = await listWorks();
+---
+
+<Base locale={locale} t={t}>
+  <div class="container">
+    <header class="page-head">
+      <h1 class="page-head__title">{t.work.indexTitle}</h1>
+      <p class="page-head__lead">{t.work.indexLead}</p>
+    </header>
+  </div>
+
+  <div class="container--wide">
+    <div class="work-grid">
+      {works.map((entry) => (
+        <WorkCard entry={entry} locale={locale} t={t} />
+      ))}
+    </div>
+  </div>
+</Base>

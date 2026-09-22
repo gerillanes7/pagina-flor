@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-21T20:50:00Z",
+  "title": "Design System: Florencia — Estudio y obra",
+  "extensions": {
+    "colorMeta": {
+      "bone":       { "role": "neutral",   "displayName": "Bone",             "canonical": "#EDE3D2", "tonalRamp": ["#1A130C", "#3D2418", "#6B5848", "#A38C6B", "#C8B294", "#E2D6BF", "#EDE3D2", "#F8F1E2"] },
+      "bone-2":     { "role": "neutral",   "displayName": "Soft Bone",        "canonical": "#E2D6BF", "tonalRamp": ["#1A130C", "#3D2418", "#6B5848", "#A38C6B", "#C8B294", "#E2D6BF", "#EDE3D2", "#F8F1E2"] },
+      "canvas":     { "role": "neutral",   "displayName": "Canvas",           "canonical": "#F4ECDB", "tonalRamp": ["#1A130C", "#3D2418", "#6B5848", "#A38C6B", "#C8B294", "#E2D6BF", "#F4ECDB", "#FBF6E8"] },
+      "putty":      { "role": "neutral",   "displayName": "Putty",            "canonical": "#C8B294", "tonalRamp": ["#1A130C", "#3D2418", "#6B5848", "#A38C6B", "#C8B294", "#E2D6BF", "#EDE3D2", "#F4ECDB"] },
+      "putty-deep": { "role": "neutral",   "displayName": "Deep Putty",       "canonical": "#A38C6B", "tonalRamp": ["#1A130C", "#3D2418", "#6B5848", "#A38C6B", "#C8B294", "#E2D6BF", "#EDE3D2", "#F4ECDB"] },
+      "umber":      { "role": "neutral",   "displayName": "Umber",            "canonical": "#3D2418", "tonalRamp": ["#1A130C", "#3D2418", "#6B5848", "#A38C6B", "#C8B294", "#E2D6BF", "#EDE3D2", "#F4ECDB"] },
+      "ink":        { "role": "neutral",   "displayName": "Ink",              "canonical": "#2A1A12", "tonalRamp": ["#1A130C", "#2A1A12", "#3D2418", "#6B5848", "#A38C6B", "#C8B294", "#E2D6BF", "#EDE3D2"] },
+      "ink-soft":   { "role": "neutral",   "displayName": "Soft Ink",         "canonical": "#6B5848", "tonalRamp": ["#1A130C", "#2A1A12", "#3D2418", "#6B5848", "#A38C6B", "#C8B294", "#E2D6BF", "#EDE3D2"] },
+      "terracotta": { "role": "secondary", "displayName": "Terracotta",       "canonical": "#B85C3F", "tonalRamp": ["#3D1A0F", "#5C2818", "#82382A", "#A8483A", "#B85C3F", "#C97A5C", "#D89B7C", "#EBC8B5"] },
+      "oxblood":    { "role": "primary",   "displayName": "Oxblood",          "canonical": "#6E2A2A", "tonalRamp": ["#1A0808", "#3D1010", "#4A1818", "#6E2A2A", "#8A3838", "#A04E4E", "#B86A6A", "#D89494"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",   "purpose": "Painter's name overlay and page titles; used at most once per page." },
+      "headline": { "displayName": "Headline",  "purpose": "Section titles throughout the page." },
+      "title":    { "displayName": "Title",     "purpose": "Work card titles and the work-detail title." },
+      "body":     { "displayName": "Body",      "purpose": "Paragraphs, lead text, captions, 65–75ch measure." },
+      "label":    { "displayName": "Label",     "purpose": "Plate numbers, year, medium, dimensions, availability, language switch, section labels in the studio letter." }
+    },
+    "shadows": [
+      { "name": "work-card-hover", "value": "0 18px 40px -28px color-mix(in srgb, var(--ink) 60%, transparent)", "purpose": "Soft upward drift on work-card hover. The only shadow in the system." }
+    ],
+    "motion": [
+      { "name": "ease-studio",  "value": "cubic-bezier(0.22, 1, 0.36, 1)",  "purpose": "Default easing for state transitions (nav underline, button hover)." },
+      { "name": "ease-rise",    "value": "cubic-bezier(0.16, 1, 0.3, 1)",    "purpose": "Easing for the one authored entrance moment — the lead text fades into view." },
+      { "name": "dur-fast",     "value": "180ms",                            "purpose": "Quick state responses (button, link)." },
+      { "name": "dur-mid",      "value": "420ms",                            "purpose": "Mid-paced transitions (nav underline, work card hover)." },
+      { "name": "dur-slow",     "value": "760ms",                            "purpose": "The one authored entrance moment (lead text rise)." }
+    ],
+    "breakpoints": [
+      { "name": "mobile",     "value": "390px",  "purpose": "Reference mobile width for captures." },
+      { "name": "tablet",     "value": "860px",  "purpose": "Work-detail single-column breakpoint; nav stays full." },
+      { "name": "desktop",    "value": "1440px", "purpose": "Reference desktop width for captures; work grid is three-up." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The primary call to action: contact, inquiry, view all work.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"/es/contact/\">Escribir a Florencia</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1.5rem; background: #6E2A2A; color: #F4ECDB; border: 1px solid #6E2A2A; font-family: Karla, sans-serif; font-weight: 500; font-size: 1rem; letter-spacing: 0.01em; text-decoration: none; transition: background 180ms cubic-bezier(0.22, 1, 0.36, 1), color 180ms cubic-bezier(0.22, 1, 0.36, 1), transform 180ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn:hover { background: #B85C3F; border-color: #B85C3F; color: #F4ECDB; } .ds-btn:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action that should not compete with the primary (see all work, switch language).",
+      "html": "<a class=\"ds-btn ds-btn-ghost\" href=\"/es/work/\">Ver toda la obra</a>",
+      "css": ".ds-btn-ghost { background: transparent; color: #2A1A12; border: 1px solid #A38C6B; } .ds-btn-ghost:hover { background: #E2D6BF; color: #2A1A12; border-color: #A38C6B; }"
+    },
+    {
+      "name": "Work Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "A single painting in the work grid: painting medium, plate badge, title, year/medium/dimensions, availability.",
+      "html": "<a class=\"ds-work-card\" href=\"/es/work/untitled-bone-field/\"><div class=\"ds-work-card__media\"><span class=\"ds-work-card__plate\">№ I</span><img src=\"/paintings/01-untitled-bone-field.svg\" alt=\"Sin título (campo de hueso) — 2025, acrílico y óleo sobre lienzo, 120 × 100 cm\" /></div><div class=\"ds-work-card__meta\"><div class=\"ds-work-card__title\">Sin título (campo de hueso)</div><div class=\"ds-work-card__sub\">2025 · ACRÍLICO Y ÓLEO SOBRE LIENZO · 120 × 100 CM</div><div class=\"ds-work-card__sub ds-work-card__sub--status\">DISPONIBLE</div></div></a>",
+      "css": ".ds-work-card { display: block; color: inherit; text-decoration: none; } .ds-work-card__media { background: #F4ECDB; border: 1px solid #E2D6BF; overflow: hidden; aspect-ratio: 4 / 5; position: relative; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-work-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; } .ds-work-card:hover .ds-work-card__media { transform: translateY(-2px); box-shadow: 0 18px 40px -28px rgba(42, 26, 18, 0.6); } .ds-work-card__plate { position: absolute; left: 0.75rem; top: 0.75rem; font-family: JetBrains Mono, monospace; font-size: 0.65rem; letter-spacing: 0.16em; color: #6B5848; background: color-mix(in srgb, #EDE3D2 80%, transparent); padding: 2px 0.5rem; } .ds-work-card__title { font-family: Source Serif 4, serif; font-weight: 600; font-size: 1.375rem; letter-spacing: -0.012em; color: #2A1A12; margin-top: 0.75rem; } .ds-work-card__sub { font-family: JetBrains Mono, monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6B5848; margin-top: 0.25rem; } .ds-work-card__sub--status { color: #6E2A2A; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Sticky top navigation with the painter's name on the left, page links in the middle, and the ES/EN switch on the right.",
+      "html": "<nav class=\"ds-nav\"><div class=\"ds-nav__inner\"><a class=\"ds-nav__brand\" href=\"/es/\">Florencia</a><ul class=\"ds-nav__links\"><li><a class=\"ds-nav__link\" aria-current=\"page\" href=\"/es/\">Estudio</a></li><li><a class=\"ds-nav__link\" href=\"/es/work/\">Obra</a></li><li><a class=\"ds-nav__link\" href=\"/es/studio/\">Carta</a></li><li><a class=\"ds-nav__link\" href=\"/es/contact/\">Contacto</a></li></ul><div class=\"ds-lang\"><a aria-current=\"true\" href=\"/es/\">ES</a><span class=\"ds-lang__sep\">/</span><a href=\"/en/\">EN</a></div></div></nav>",
+      "css": ".ds-nav { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, #EDE3D2 88%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-bottom: 1px solid color-mix(in srgb, #A38C6B 40%, transparent); } .ds-nav__inner { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; padding: 1rem 0; } .ds-nav__brand { font-family: Source Serif 4, serif; font-weight: 600; font-size: 1.125rem; letter-spacing: -0.01em; color: #2A1A12; text-decoration: none; } .ds-nav__links { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; } .ds-nav__link { font-size: 0.875rem; color: #2A1A12; text-decoration: none; position: relative; } .ds-nav__link::after { content: \"\"; position: absolute; left: 0; right: 0; bottom: -6px; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-nav__link:hover::after, .ds-nav__link[aria-current=\"page\"]::after { transform: scaleX(1); } .ds-nav__link[aria-current=\"page\"] { color: #6E2A2A; } .ds-lang { display: inline-flex; gap: 0.5rem; align-items: baseline; font-family: JetBrains Mono, monospace; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; } .ds-lang a { color: #6B5848; text-decoration: none; } .ds-lang a:hover, .ds-lang a[aria-current=\"true\"] { color: #6E2A2A; } .ds-lang__sep { color: #A38C6B; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": null,
+      "description": "Single-line text input used in the contact form. Sharp corners, mono label above the field, oxblood focus halo.",
+      "html": "<label><span class=\"ds-label\">Tu nombre</span><input class=\"ds-input\" type=\"text\" name=\"name\" required autocomplete=\"name\" /></label>",
+      "css": ".ds-label { font-family: JetBrains Mono, monospace; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: #6B5848; display: block; margin-bottom: 0.5rem; } .ds-input { font-family: Karla, sans-serif; font-size: 1rem; color: #2A1A12; background: #F4ECDB; border: 1px solid #A38C6B; padding: 0.75rem 1rem; width: 100%; border-radius: 0; } .ds-input:focus { outline: 0; border-color: #6E2A2A; box-shadow: 0 0 0 3px color-mix(in srgb, #6E2A2A 25%, transparent); }"
+    },
+    {
+      "name": "Plate Badge (inline with title)",
+      "kind": "chip",
+      "refersTo": null,
+      "description": "Small mono badge that lives inline with the work-detail title; never used as a heading kicker.",
+      "html": "<h1 class=\"ds-work-detail__title\"><span class=\"ds-plate\">Plancha I</span>Sin título (campo de hueso)</h1>",
+      "css": ".ds-plate { display: inline-block; font-family: JetBrains Mono, monospace; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: #6B5848; margin-right: 0.75rem; vertical-align: 0.55em; border: 1px solid #A38C6B; padding: 4px 10px; font-weight: 400; } .ds-work-detail__title { font-family: Source Serif 4, serif; font-weight: 600; font-size: clamp(2.25rem, 5vw, 4rem); letter-spacing: -0.022em; line-height: 1.02; margin: 0; }"
+    },
+    {
+      "name": "Empty Placeholder",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Honest placeholder for absent content (biography, CV, press). Italic, soft-ink, with a single left border.",
+      "html": "<p class=\"ds-empty\">Biografía por añadir — Florencia nos la hará llegar.</p>",
+      "css": ".ds-empty { font-style: italic; color: #6B5848; border-left: 1px solid #A38C6B; padding-left: 1rem; margin: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Atelier — the painter's working studio as the page.",
+    "overview": "The site is the painter's studio before it is a portfolio. The first viewport is a wall with stacked canvases, a paint-stained floor, brushes in a jar, and late-afternoon light through a tall window. The painter's name — \"Florencia\" — sits in a quiet corner of the scene, not above it. From there, the visitor moves into the work, the painter's letter, and the contact surface; everything carries the same restraint as the room. This is not a marketplace and not a stock-art gallery. The interface recedes. There are no stock decorations, no hero metric, no kicker above a heading, no glass, no gradient text, no card-of-icon-rows. The page is bone-and-putty with one saturated accent (oxblood) that earns its place by being rare. The typography pairs a sober contemporary serif (Source Serif 4) with a working grotesk (Karla) and a technical mono (JetBrains Mono) reserved for plate numbers, year, medium, dimensions, and labels — the kind of typography an art catalogue uses, not the kind a marketing page uses.",
+    "keyCharacteristics": [
+      "The studio is the page; the work emerges from it.",
+      "One voice, one room, one accent.",
+      "The catalogue speaks in plate numbers, not hashtags.",
+      "Bilingual ES/EN by per-route URLs, with equal first-class surfaces.",
+      "Honest placeholders for biography, CV, and press — never invented text."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule",       "body": "The system carries one saturated accent (oxblood). It appears on ≤10% of any viewport. Every secondary accent is in dialogue with the primary (terracotta as the hover, never as a peer).", "section": "colors" },
+      { "name": "The No-Default-Gray Rule",  "body": "Secondary text is not gray; it is `ink-soft`, a warm-brown desaturated from ink. Cool grays are wrong against bone.", "section": "colors" },
+      { "name": "The Plate-Number Rule",     "body": "JetBrains Mono appears only on technical metadata: plate numbers, year, medium, dimensions, availability, and the language switch. It is never used as decoration; it is never used for body copy.", "section": "typography" },
+      { "name": "The Self-Hosted-Face Rule", "body": "Every face is self-hosted via `@fontsource`. No Google Fonts CDN. No system-display-face-as-display-voice. If Source Serif 4 fails to load, the fallback is `Iowan Old Style`, then Georgia, then serif — never the platform sans.", "section": "typography" },
+      { "name": "The No-Kicker Rule",        "body": "No eyebrow or kicker sits above a heading. The heading carries its own weight. Plate numbers live inline with the title as a small bordered badge, never as a heading kicker.", "section": "typography" },
+      { "name": "The First Heading Rule",    "body": "More space above a heading than below it. Headings breathe at the top of a section, not at the bottom of the previous one.", "section": "layout" },
+      { "name": "The Flat-By-Default Rule",  "body": "Surfaces are flat at rest. The only shadow in the system is the work-card hover lift, which is a state response, not a baseline. No `box-shadow` on the nav, the footer, the page heads, or the inputs.", "section": "elevation" },
+      { "name": "The One-SVG-Language Rule", "body": "Imagery is hand-authored SVG. Every painting is its own SVG composition. The studio scene is a single SVG. There are no clip-path approximations of organic shapes; there are no stock icons standing in for drawn marks.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do keep the studio first viewport intact — stacked canvases, paint-stained floor, brushes in a jar, late-afternoon light.",
+      "Do give every painting a museum-grade caption: title, year, medium, dimensions, availability.",
+      "Do treat the language switch as a primary navigation element; both locales are equal.",
+      "Do let placeholder content stay honest. Empty bio, CV, and press are placeholders, not lorem ipsum.",
+      "Do keep one motion moment — the studio rises into view on load — and let everything else stay still.",
+      "Do source and self-host the faces; no Google Fonts CDN, no system display faces as the page voice."
+    ],
+    "donts": [
+      "Don't add a kicker, eyebrow, or category label above a heading. The heading carries its own weight.",
+      "Don't introduce a saturated color besides oxblood and terracotta. No second brand accent.",
+      "Don't use system fonts as the display voice. Source Serif 4 (or its fallback chain) only.",
+      "Don't introduce a radius. The whole system is sharp-cornered.",
+      "Don't use JetBrains Mono outside technical metadata (plate numbers, year, medium, dimensions, availability, language switch).",
+      "Don't introduce gradients, glass, blur-as-decoration, or hero-metric scaffolding.",
+      "Don't fabricate biography, CV entries, press quotes, or collector names. Honest placeholders only.",
+      "Don't lock the painter's medium or stylistic register into the visual system. The studio is medium-neutral by design."
+    ]
+  }
+}

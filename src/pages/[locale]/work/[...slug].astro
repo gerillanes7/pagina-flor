@@ -1,0 +1,94 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Painting from "../../../components/Painting.astro";
+import { listWorks, resolveImage } from "../../../lib/content";
+import es from "../../../i18n/es.json";
+import en from "../../../i18n/en.json";
+
+export async function getStaticPaths() {
+  const works = await listWorks();
+  return works.flatMap((entry) => [
+    { params: { locale: "es", slug: entry.data.slug }, props: { entry } },
+    { params: { locale: "en", slug: entry.data.slug }, props: { entry } },
+  ]);
+}
+
+const { locale, slug } = Astro.params as { locale: "es" | "en"; slug: string };
+const { entry } = Astro.props as { entry: any };
+const t = locale === "es" ? es : en;
+const data = entry.data;
+
+const all = await listWorks();
+const idx = all.findIndex((w) => w.data.slug === slug);
+const prev = idx > 0 ? all[idx - 1] : null;
+const next = idx < all.length - 1 ? all[idx + 1] : null;
+
+const availKey = data.availability === "current" ? "current" : data.availability;
+const availLabel = (t.home as any)[availKey] ?? data.availability;
+---
+
+<Base locale={locale} t={t}>
+  <div class="container">
+    <p style="padding-top: var(--space-6); margin: 0;">
+      <a class="back-link" href={`/${locale}/work/`}>← {t.work.back}</a>
+    </p>
+
+    <article class="work-detail">
+      <div class="work-detail__media">
+        <Painting
+          src={resolveImage(data.image)}
+          alt={`${data.title[locale]} — ${data.year}, ${data.medium[locale]}, ${data.dimensions}`}
+        />
+      </div>
+
+      <div class="work-detail__meta">
+        <span class="work-detail__plate">{t.work.plate} {data.plate}</span>
+        <h1 class="work-detail__title">{data.title[locale]}</h1>
+
+        <dl class="work-detail__spec">
+          <div>
+            <dt>{t.work.year}</dt>
+            <dd>{data.year}</dd>
+          </div>
+          <div>
+            <dt>{t.work.medium}</dt>
+            <dd>{data.medium[locale]}</dd>
+          </div>
+          <div>
+            <dt>{t.work.dimensions}</dt>
+            <dd>{data.dimensions}</dd>
+          </div>
+          <div>
+            <dt>{t.work.availability}</dt>
+            <dd>{availLabel}</dd>
+          </div>
+        </dl>
+
+        <p style="margin: 0;">
+          <a class="btn" href={`/${locale}/contact/?ref=${data.slug}`}>
+            {t.work.inquiry}
+          </a>
+        </p>
+      </div>
+    </article>
+
+    <nav aria-label="Obra" class="work-nav">
+      <span>
+        {prev && (
+          <a href={`/${locale}/work/${prev.data.slug}/`}>
+            ← {locale === "es" ? "Anterior" : "Previous"}
+            <span class="work-nav__title">{prev.data.title[locale]}</span>
+          </a>
+        )}
+      </span>
+      <span style="text-align: right;">
+        {next && (
+          <a href={`/${locale}/work/${next.data.slug}/`}>
+            {locale === "es" ? "Siguiente" : "Next"} →
+            <span class="work-nav__title">{next.data.title[locale]}</span>
+          </a>
+        )}
+      </span>
+    </nav>
+  </div>
+</Base>

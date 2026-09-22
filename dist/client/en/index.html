@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v4.16.19"><title>Florencia — Painting</title><meta name="description" content="Florencia's studio and painting. Acquisitions and commissions."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" hreflang="es" href="https://florencia.example/es//"><link rel="alternate" hreflang="en" href="https://florencia.example/en//"><meta property="og:title" content="Florencia — Painting"><meta property="og:description" content="Florencia's studio and painting. Acquisitions and commissions."><meta property="og:type" content="website"><link rel="stylesheet" href="/_astro/contact.CCYytLDa.css"></head> <body class="page-home"> <a class="skip-link" href="#main">Saltar al contenido</a> <header class="nav" aria-label="Principal"> <div class="nav__row"> <div class="nav__lang" aria-label="Idioma"> <a href="/en/">ES</a> <span class="nav__lang-sep" aria-hidden="true">/</span> <a href="/es/" aria-current="true">EN</a> </div> <a class="nav__brand" href="/en/">Florencia</a> <span class="nav__utility">Madrid · Studio</span> </div> <div class="container"> <nav aria-label="Secciones"> <ul class="nav__links" role="list"> <li> <a class="nav__link" href="/en/" aria-current="page">Studio</a> </li><li> <a class="nav__link" href="/en/work/">Work</a> </li><li> <a class="nav__link" href="/en/studio/">Letter</a> </li><li> <a class="nav__link" href="/en/contact/">Contact</a> </li> </ul> </nav> </div> </header> <main id="main">  <section class="container panels" aria-label="Studio rooms"> <a class="panel" href="/en/work/" aria-label="Work — selection of paintings"> <img class="panel__media" src="/panels/obra-panel.svg" alt=""> <span class="panel__scrim" aria-hidden="true"></span> <span class="panel__label" aria-hidden="true"> <span> <span class="panel__mark">Work</span> <span class="panel__tag">I · Work · 8 pieces</span> </span> </span> </a> <a class="panel" href="/en/studio/" aria-label="Letter — about the painter"> <img class="panel__media" src="/panels/carta-panel.svg" alt=""> <span class="panel__scrim" aria-hidden="true"></span> <span class="panel__label" aria-hidden="true"> <span> <span class="panel__mark">Letter</span> <span class="panel__tag">II · Letter · Letter from the studio</span> </span> </span> </a> <a class="panel" href="/en/contact/" aria-label="Contact — for acquisitions and commissions"> <img class="panel__media" src="/panels/contacto-panel.svg" alt=""> <span class="panel__scrim" aria-hidden="true"></span> <span class="panel__label" aria-hidden="true"> <span> <span class="panel__mark">Contact</span> <span class="panel__tag">III · Contact · Email · Instagram · Visit</span> </span> </span> </a> </section> <section class="about-home" aria-label="About the painter"> <div class="container about-home__inner"> <span class="about-home__side-l" aria-hidden="true">Studio · Madrid</span> <header class="about-home__head"> <p class="about-home__eyebrow">About</p> <span class="about-home__rule" aria-hidden="true"></span> <h2 class="about-home__title">Florencia</h2> <p class="about-home__lead">Florencia paints from her studio. Here is how she works and why what leaves the studio stays in the studio until it is finished.</p> </header> <div class="about-home__body"> <p>I work in oil and acrylic on canvas, and sometimes on board. I paint almost every day; what leaves the studio stays in the studio until it is finished.</p><p>The pieces you see here are the ones I have decided to show. There is no inventory: each work is one of one.</p><p>If something interests you, write. If you want to talk about a commission, write. I am direct; let us both be.</p> <p class="about-home__sign">— Florencia, 22 September 2026</p> </div> <span class="about-home__side-r" aria-hidden="true">Painting · Oil · acrylic</span> </div> </section> <section class="contact-home" aria-label="Contact"> <div class="container contact-home__inner"> <div class="contact-home__head"> <p class="contact-home__eyebrow">III · Contact</p> <h2 class="contact-home__title">Write to her</h2> <p class="contact-home__lead">For acquisitions, commissions, or simply to write.</p> <div class="contact-home__channels"> <div> <span class="label">Email</span> <p style="margin: var(--space-2) 0 0;"> <a href="mailto:florencia@florencia.example">florencia@florencia.example</a> </p> </div> <div> <span class="label">Instagram</span> <p style="margin: var(--space-2) 0 0;"> <a href="https://instagram.com/florencia" rel="me noopener noreferrer" target="_blank">@florencia</a> </p> </div> <div> <span class="label">Studio</span> <p class="muted" style="margin: var(--space-2) 0 0;">Visits by appointment</p> </div> </div> </div> <div> <form action="mailto:florencia@florencia.example" method="post" enctype="text/plain" class="contact-home__form"> <h3 class="contact-home__form-title">Or write to her</h3> <label> <span class="label">Your name</span> <input type="text" name="name" required autocomplete="name"> </label> <label> <span class="label">Your email</span> <input type="email" name="email" required autocomplete="email"> </label> <label> <span class="label">Subject</span> <input type="text" name="subject"> </label> <label> <span class="label">Message</span> <textarea name="body" rows="6" required></textarea> </label> <p class="contact-home__submit-row"> <button class="btn" type="submit">Send</button> <span class="contact-home__note">The form sends by mail; your message reaches Florencia directly.</span> </p> </form> </div> </div> </section>  </main> <footer class="footer"> <div class="container footer__row"> <span>Studio and work of Florencia.</span> <span>© 2026 · All rights reserved.</span> </div> </footer> <script>
+      (function () {
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var supportsIO = 'IntersectionObserver' in window;
+
+        var targets = document.querySelectorAll(
+          '.section, .stack, .work-grid, .cluster, .letter, .contact__channels, .cv-list, .press-list, .selection__grid, .footer__row'
+        );
+
+        var reveals = [];
+        targets.forEach(function (el) {
+          for (var i = 0; i < el.children.length; i++) {
+            var child = el.children[i];
+            child.classList.add('reveal');
+            reveals.push(child);
+          }
+        });
+
+        if (reduced || !supportsIO) {
+          reveals.forEach(function (el) { el.classList.add('is-visible'); });
+          return;
+        }
+
+        // Fire for elements already in view, and use a generous rootMargin so
+        // elements just outside the viewport trigger without a real scroll
+        // (and so headless capture tools don't leave them opacity:0).
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px 100% 0px', threshold: 0 }
+        );
+
+        reveals.forEach(function (el) { io.observe(el); });
+      })();
+    </script> </body> </html>

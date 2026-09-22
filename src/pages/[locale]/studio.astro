@@ -1,0 +1,145 @@
+---
+import Base from "../../layouts/Base.astro";
+import { readBio, readStudio, listCv, listPress } from "../../lib/content";
+import es from "../../i18n/es.json";
+import en from "../../i18n/en.json";
+
+export async function getStaticPaths() {
+  return [{ params: { locale: "es" } }, { params: { locale: "en" } }];
+}
+
+const { locale } = Astro.params as { locale: "es" | "en" };
+const t = locale === "es" ? es : en;
+
+const today = new Date();
+const dateStr = today.toLocaleDateString(locale === "es" ? "es-ES" : "en-GB", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+const bio = await readBio();
+const studio = await readStudio();
+const cv = await listCv();
+const press = await listPress();
+
+const fallbackLetter = t.studio.letter as string[];
+const para1 = studio?.intro?.[locale] || fallbackLetter[0];
+const para2 = studio?.method?.[locale] || fallbackLetter[1];
+const para3 = studio?.commissions?.[locale] || fallbackLetter[2];
+const signature = studio?.signature?.trim() || t.studio.signature;
+
+const bioText = bio?.body?.[locale]?.trim();
+const bioTitle = bio?.title?.[locale]?.trim() || t.studio.bio;
+
+const cvKindLabel = (k: string) => {
+  const map: Record<string, { es: string; en: string }> = {
+    solo: { es: "Individual", en: "Solo" },
+    group: { es: "Colectiva", en: "Group" },
+    fair: { es: "Feria", en: "Fair" },
+    award: { es: "Premio / Beca", en: "Award" },
+    residency: { es: "Residencia", en: "Residency" },
+    talk: { es: "Charla", en: "Talk" },
+    publication: { es: "Publicación", en: "Publication" },
+  };
+  return map[k]?.[locale] ?? k;
+};
+
+const paragraphs = [para1, para2, para3].filter(
+  (p): p is string => typeof p === "string" && p.trim().length > 0
+);
+---
+
+<Base locale={locale} t={t}>
+  <div class="container">
+    <header class="page-head">
+      <h1 class="page-head__title">{t.studio.title}</h1>
+      <p class="page-head__lead">{t.home.about?.lead ?? t.home.lead}</p>
+    </header>
+  </div>
+
+  <div class="container">
+    <div class="two-col">
+      <div class="two-col__text stack stack--lg">
+        <div class="letter">
+          {paragraphs.map((para) => (
+            <p>{para}</p>
+          ))}
+          <p class="letter__sign">— {signature}, {dateStr}</p>
+        </div>
+
+        <div>
+          <span class="section-label">{bioTitle}</span>
+          <span class="section-rule" style="margin-top: var(--space-3);"></span>
+          {bioText ? (
+            <p style="margin-top: var(--space-4);">{bioText}</p>
+          ) : (
+            <p class="empty" style="margin-top: var(--space-4);">{t.studio.emptyBio}</p>
+          )}
+        </div>
+
+        <div>
+          <span class="section-label">{t.studio.cv}</span>
+          <span class="section-rule" style="margin-top: var(--space-3);"></span>
+          {cv.length > 0 ? (
+            <dl class="cv-list" style="margin-top: var(--space-4);">
+              {cv.map((entry) => (
+                <div style="padding: var(--space-3) 0; border-top: 1px solid var(--rule);">
+                  <div class="mono" style="color: var(--ink-soft); font-size: var(--step--1);">
+                    {entry.year} · {cvKindLabel(entry.kind)}
+                  </div>
+                  <div style="font-size: var(--step-1); margin-top: var(--space-1);">
+                    {entry.title}
+                    {entry.venue && (
+                      <span style="color: var(--ink-soft);"> — {entry.venue}</span>
+                    )}
+                    {entry.city && (
+                      <span style="color: var(--ink-soft);">, {entry.city}</span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </dl>
+          ) : (
+            <p class="empty" style="margin-top: var(--space-4);">{t.studio.emptyCV}</p>
+          )}
+        </div>
+
+        <div>
+          <span class="section-label">{t.studio.press}</span>
+          <span class="section-rule" style="margin-top: var(--space-3);"></span>
+          {press.length > 0 ? (
+            <dl class="press-list" style="margin-top: var(--space-4);">
+              {press.map((entry) => (
+                <div style="padding: var(--space-3) 0; border-top: 1px solid var(--rule);">
+                  <div class="mono" style="color: var(--ink-soft); font-size: var(--step--1);">
+                    {entry.year} · {entry.publication}
+                    {entry.author && ` · ${entry.author}`}
+                  </div>
+                  <div style="font-size: var(--step-1); margin-top: var(--space-1);">
+                    {entry.url ? (
+                      <a href={entry.url} target="_blank" rel="noopener">{entry.title}</a>
+                    ) : (
+                      entry.title
+                    )}
+                  </div>
+                  {entry.excerpt?.[locale] && (
+                    <p style="color: var(--ink-soft); font-size: var(--step-0); margin-top: var(--space-2);">
+                      {entry.excerpt[locale]}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </dl>
+          ) : (
+            <p class="empty" style="margin-top: var(--space-4);">{t.studio.emptyPress}</p>
+          )}
+        </div>
+      </div>
+
+      <aside class="two-col__image" aria-hidden="false" aria-label={locale === "es" ? "Estudio de Florencia" : "Florencia's studio"}>
+        <img src="/banners/contacto-banner.svg" alt="" />
+      </aside>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,79 @@
+---
+import Base from "../../layouts/Base.astro";
+import es from "../../i18n/es.json";
+import en from "../../i18n/en.json";
+
+export async function getStaticPaths() {
+  return [{ params: { locale: "es" } }, { params: { locale: "en" } }];
+}
+
+const { locale } = Astro.params as { locale: "es" | "en" };
+const t = locale === "es" ? es : en;
+---
+
+<Base locale={locale} t={t}>
+  <div class="container">
+    <header class="page-head">
+      <h1 class="page-head__title">{t.contact.title}</h1>
+      <p class="page-head__lead">{t.contact.lead}</p>
+    </header>
+  </div>
+
+  <div class="container">
+    <div class="contact">
+      <div class="contact__channels">
+        <div>
+          <span class="label">{t.contact.email}</span>
+          <span class="section-rule" style="margin-top: var(--space-2); margin-bottom: var(--space-3);"></span>
+          <p style="margin: 0;">
+            <a href="mailto:florencia@florencia.example">florencia@florencia.example</a>
+          </p>
+        </div>
+        <div>
+          <span class="label">{t.contact.instagram}</span>
+          <span class="section-rule" style="margin-top: var(--space-2); margin-bottom: var(--space-3);"></span>
+          <p style="margin: 0;">
+            <a href="https://instagram.com/florencia" rel="me noopener noreferrer" target="_blank">@florencia</a>
+          </p>
+        </div>
+        <div>
+          <span class="label">{t.contact.atelier}</span>
+          <span class="section-rule" style="margin-top: var(--space-2); margin-bottom: var(--space-3);"></span>
+          <p class="muted" style="margin: 0;">{t.contact.atelierValue}</p>
+        </div>
+      </div>
+
+      <div>
+        <span class="section-label">{t.contact.formTitle}</span>
+        <span class="section-rule" style="margin-top: var(--space-3); margin-bottom: var(--space-4);"></span>
+        <form
+          action="mailto:florencia@florencia.example"
+          method="post"
+          enctype="text/plain"
+          class="contact__form"
+        >
+          <label>
+            <span class="label">{t.contact.formName}</span>
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+          <label>
+            <span class="label">{t.contact.formEmail}</span>
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+          <label>
+            <span class="label">{t.contact.formSubject}</span>
+            <input type="text" name="subject" />
+          </label>
+          <label>
+            <span class="label">{t.contact.formBody}</span>
+            <textarea name="body" rows="6" required></textarea>
+          </label>
+          <p style="margin: 0;">
+            <button class="btn" type="submit">{t.contact.formSubmit}</button>
+          </p>
+          <p class="muted" style="font-size: var(--step--1); margin: 0;">{t.contact.formNote}</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</Base>

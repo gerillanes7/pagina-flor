@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Fragmento de un boceto — Carta">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EDE3D2"/>
+      <stop offset="0.6" stop-color="#E2D6BF"/>
+      <stop offset="1" stop-color="#C8B294"/>
+    </linearGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="11"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="rough" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="turbulence" baseFrequency="0.04 0.22" numOctaves="3" seed="9"/>
+      <feDisplacementMap in="SourceGraphic" scale="6"/>
+    </filter>
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="1" dy="2"/>
+      <feComposite in2="SourceGraphic" operator="arithmetic" k2="-1" k3="1"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#paper)"/>
+
+  <!-- Subtle vertical stains, like aged paper -->
+  <g opacity="0.18" filter="url(#rough)">
+    <ellipse cx="320" cy="120" rx="40" ry="220" fill="#A38C6B"/>
+    <ellipse cx="780" cy="80" rx="30" ry="180" fill="#6B5848"/>
+    <ellipse cx="1280" cy="140" rx="50" ry="240" fill="#A38C6B"/>
+  </g>
+
+  <!-- Sketchy figure study — the painter's draft -->
+  <g stroke="#3D2418" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)">
+    <!-- A seated figure, sketched in confident strokes -->
+    <path d="M 580 700 Q 540 540 580 400 Q 600 320 700 300 Q 780 280 820 320" stroke-width="3.5"/>
+    <path d="M 700 300 Q 740 260 780 270 Q 810 290 800 320" stroke-width="2.8"/>
+    <path d="M 700 320 L 680 360 M 760 310 L 790 350" stroke-width="2.5"/>
+    <path d="M 580 400 Q 520 440 500 540 Q 480 640 520 740" stroke-width="3"/>
+    <path d="M 580 400 Q 700 460 820 480 Q 920 500 980 540" stroke-width="2.8"/>
+    <path d="M 820 480 Q 880 540 900 620 Q 920 720 880 780" stroke-width="3"/>
+    <path d="M 580 700 Q 660 760 760 770 Q 880 760 900 720" stroke-width="3.2"/>
+    <path d="M 760 770 Q 780 820 760 860" stroke-width="2.5"/>
+    <path d="M 820 770 Q 860 820 860 860" stroke-width="2.5"/>
+    <!-- Cross-hatching for shadow -->
+    <g opacity="0.7" stroke-width="1.4">
+      <path d="M 540 520 L 600 540"/>
+      <path d="M 520 560 L 600 580"/>
+      <path d="M 540 600 L 600 620"/>
+      <path d="M 540 640 L 580 660"/>
+      <path d="M 880 580 L 940 600"/>
+      <path d="M 880 620 L 940 640"/>
+      <path d="M 880 660 L 940 680"/>
+    </g>
+  </g>
+
+  <!-- A second, looser figure study on the right -->
+  <g stroke="#3D2418" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#rough)" opacity="0.6">
+    <path d="M 1100 740 Q 1080 600 1140 480 Q 1180 380 1260 360" stroke-width="2.4"/>
+    <path d="M 1140 480 Q 1100 540 1060 600 Q 1040 680 1080 760" stroke-width="2.2"/>
+    <path d="M 1260 360 Q 1320 320 1360 360 Q 1380 400 1340 420" stroke-width="2"/>
+    <path d="M 1260 360 Q 1280 420 1240 460 Q 1200 480 1180 460" stroke-width="1.8"/>
+  </g>
+
+  <!-- Annotations and arrows, like an artist's notebook -->
+  <g stroke="#6E2A2A" fill="#6E2A2A" filter="url(#rough)" opacity="0.55">
+    <path d="M 940 220 Q 980 240 1020 260" stroke-width="1.6" fill="none"/>
+    <path d="M 1020 260 L 1014 252 M 1020 260 L 1024 270" stroke-width="1.6"/>
+    <text x="1180" y="240" font-family="Petit Formal Script, cursive" font-size="32" fill="#6E2A2A" stroke="none">luz</text>
+
+    <path d="M 460 280 Q 440 320 460 360" stroke-width="1.6" fill="none"/>
+    <path d="M 460 360 L 454 354 M 460 360 L 466 354" stroke-width="1.6"/>
+    <text x="320" y="260" font-family="Petit Formal Script, cursive" font-size="30" fill="#6E2A2A" stroke="none">mover hombro</text>
+  </g>
+
+  <!-- Subtle frame edge -->
+  <rect x="6" y="6" width="1588" height="888" fill="none" stroke="#A38C6B" stroke-width="1" opacity="0.4"/>
+
+  <!-- Grain overlay -->
+  <rect width="1600" height="900" filter="url(#grain)" opacity="0.5"/>
+</svg>

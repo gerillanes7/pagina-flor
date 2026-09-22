@@ -1,0 +1,22 @@
+12:40:58 [ERROR] [@astrojs/node] Unhandled rejection while rendering undefined
+Error: listen EADDRINUSE: address already in use 127.0.0.1:4321
+    at Server.setupListenHandle [as _listen2] (node:net:2328:16)
+    at listenInCluster (node:net:2437:12)
+    at node:net:2666:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '127.0.0.1',
+  port: 4321,
+  loc: undefined,
+  plugin: undefined,
+  pluginCode: undefined,
+  hint: undefined
+}
+listen EADDRINUSE: address already in use 127.0.0.1:4321
+  Stack trace:
+    at Server.setupListenHandle [as _listen2] (node:net:2328:16)
+    at node:net:2666:7
+
+C:\Users\germa\Documents\Proyectos\paginarefuerzo>

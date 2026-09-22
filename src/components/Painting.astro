@@ -1,0 +1,30 @@
+---
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
+const { src, alt } = Astro.props as { src: string; alt: string };
+
+const publicPath = resolve(process.cwd(), "public", src.replace(/^\//, ""));
+
+let svg = "";
+try {
+  svg = readFileSync(publicPath, "utf8");
+} catch (err) {
+  console.warn("Painting asset missing:", publicPath);
+}
+
+if (svg) {
+  svg = svg.replace(/<svg([^>]*)>/, (match, attrs) => {
+    if (/role=/.test(attrs)) return match;
+    return `<svg${attrs} role="img" aria-label="${alt.replace(/"/g, "&quot;")}">`;
+  });
+}
+---
+
+{svg ? (
+  <Fragment set:html={svg} />
+) : (
+  <div style="background: var(--bone-2); aspect-ratio: 4/5; display: grid; place-items: center; color: var(--ink-soft); font-style: italic;">
+    {alt}
+  </div>
+)}
