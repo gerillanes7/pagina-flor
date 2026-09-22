@@ -1,5 +1,10 @@
 import { config, collection, singleton, fields } from "@keystatic/core";
 
+const isGithub = !!(
+  process.env.KEYSTATIC_GITHUB_APP_ID &&
+  process.env.KEYSTATIC_GITHUB_APP_PRIVATE_KEY
+);
+
 const localizedText = (labelEs, labelEn) =>
   fields.object({
     es: fields.text({ label: labelEs, multiline: true }),
@@ -7,8 +12,15 @@ const localizedText = (labelEs, labelEn) =>
   });
 
 export default config({
-  storage: { kind: "local" },
-
+  storage: isGithub
+    ? {
+        kind: "github",
+        repo: {
+          owner: process.env.KEYSTATIC_GITHUB_REPO_OWNER || "",
+          name: process.env.KEYSTATIC_GITHUB_REPO_NAME || "",
+        },
+      }
+    : { kind: "local" },
   collections: {
     works: collection({
       label: "Pinturas",
