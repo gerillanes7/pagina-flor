@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="es"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v4.16.19"><title>Florencia — Pintura</title><meta name="description" content="El estudio y la obra de Florencia, pintora. Adquisición y encargos."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" hreflang="es" href="https://florencia.example/es//work/estudio-de-tarde/"><link rel="alternate" hreflang="en" href="https://florencia.example/en//work/estudio-de-tarde/"><meta property="og:title" content="Florencia — Pintura"><meta property="og:description" content="El estudio y la obra de Florencia, pintora. Adquisición y encargos."><meta property="og:type" content="website"><link rel="stylesheet" href="/_astro/contact.CCYytLDa.css"></head> <body class=""> <a class="skip-link" href="#main">Saltar al contenido</a> <header class="nav" aria-label="Principal"> <div class="nav__row"> <div class="nav__lang" aria-label="Idioma"> <a href="/es/work/estudio-de-tarde/" aria-current="true">ES</a> <span class="nav__lang-sep" aria-hidden="true">/</span> <a href="/en/work/estudio-de-tarde/">EN</a> </div> <a class="nav__brand" href="/es/">Florencia</a> </div> <div class="container"> <nav aria-label="Secciones"> <ul class="nav__links" role="list"> <li> <a class="nav__link" href="/es/">Estudio</a> </li><li> <a class="nav__link" href="/es/work/" aria-current="page">Obra</a> </li><li> <a class="nav__link" href="/es/studio/">Carta</a> </li><li> <a class="nav__link" href="/es/contact/">Contacto</a> </li> </ul> </nav> </div> </header> <main id="main">  <div class="container"> <p style="padding-top: var(--space-6); margin: 0;"> <a class="back-link" href="/es/work/">← Volver a la obra</a> </p> <article class="work-detail"> <div class="work-detail__media"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Placeholder painting, Studio in the afternoon, oil on canvas, 110 by 130 centimetres." preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="wall-4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EDE3D2"/>
+      <stop offset="1" stop-color="#D9CAB0"/>
+    </linearGradient>
+    <linearGradient id="window-4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F8EFD9"/>
+      <stop offset="0.6" stop-color="#EDD9B4"/>
+      <stop offset="1" stop-color="#C9B488"/>
+    </linearGradient>
+    <filter id="grain-4">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="17"/>
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.06 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="dust-4">
+      <feTurbulence type="fractalNoise" baseFrequency="2.4" numOctaves="1" seed="9"/>
+      <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.4 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- Bone wall -->
+  <rect width="800" height="1000" fill="url(#wall-4)"/>
+
+  <!-- Soft wall variation -->
+  <path d="M0,0 C200,80 480,30 800,90 L800,0 Z" fill="#F1E8D7" opacity="0.55"/>
+  <path d="M0,1000 C220,940 540,980 800,930 L800,1000 Z" fill="#C8B294" opacity="0.5"/>
+
+  <!-- Window light rectangle -->
+  <rect x="200" y="140" width="430" height="540" fill="url(#window-4)"/>
+  <!-- Soft window glow into wall -->
+  <rect x="180" y="120" width="470" height="580" fill="url(#window-4)" opacity="0.35"/>
+
+  <!-- Window mullions -->
+  <g stroke="#3D2418" stroke-width="3" opacity="0.7">
+    <line x1="200" y1="410" x2="630" y2="410"/>
+    <line x1="415" y1="140" x2="415" y2="680"/>
+  </g>
+  <g stroke="#3D2418" stroke-width="2" opacity="0.5">
+    <line x1="200" y1="280" x2="630" y2="280"/>
+    <line x1="200" y1="540" x2="630" y2="540"/>
+    <line x1="305" y1="140" x2="305" y2="680"/>
+    <line x1="525" y1="140" x2="525" y2="680"/>
+  </g>
+
+  <!-- Dust motes in light -->
+  <rect x="180" y="120" width="470" height="580" filter="url(#dust-4)" opacity="0.6"/>
+
+  <!-- Cast shadow from window onto lower wall -->
+  <path d="M0,720 L800,700 L800,760 L0,790 Z" fill="#3D2418" opacity="0.15"/>
+
+  <!-- Table silhouette, lower right -->
+  <rect x="500" y="780" width="220" height="14" fill="#3D2418" opacity="0.9"/>
+  <rect x="510" y="794" width="6" height="80" fill="#3D2418" opacity="0.85"/>
+  <rect x="704" y="794" width="6" height="80" fill="#3D2418" opacity="0.85"/>
+
+  <!-- Bottle on table -->
+  <path d="M580,720 L580,780 L600,780 L600,720 Z" fill="#6E2A2A" opacity="0.85"/>
+  <ellipse cx="590" cy="720" rx="10" ry="3" fill="#3D2418" opacity="0.6"/>
+
+  <!-- Chair silhouette, lower left -->
+  <rect x="60" y="780" width="80" height="6" fill="#3D2418" opacity="0.8"/>
+  <rect x="60" y="680" width="6" height="120" fill="#3D2418" opacity="0.8"/>
+  <rect x="134" y="680" width="6" height="120" fill="#3D2418" opacity="0.8"/>
+  <rect x="60" y="680" width="80" height="6" fill="#3D2418" opacity="0.8"/>
+  <rect x="60" y="730" width="80" height="4" fill="#3D2418" opacity="0.7"/>
+
+  <rect width="800" height="1000" filter="url(#grain-4)" opacity="0.6"/>
+</svg> </div> <div class="work-detail__meta"> <span class="work-detail__plate">Plancha IV</span> <h1 class="work-detail__title">Estudio de tarde</h1> <dl class="work-detail__spec"> <div> <dt>Año</dt> <dd>2024</dd> </div> <div> <dt>Técnica</dt> <dd>Óleo sobre lienzo</dd> </div> <div> <dt>Dimensiones</dt> <dd>110 × 130 cm</dd> </div> <div> <dt>Disponibilidad</dt> <dd>Vendida</dd> </div> </dl> <p style="margin: 0;"> <a class="btn" href="/es/contact/?ref=estudio-de-tarde"> Consultar por esta pieza </a> </p> </div> </article> <nav aria-label="Obra" class="work-nav"> <span> <a href="/es/work/tertiary/">
+← Anterior <span class="work-nav__title">Terciario</span> </a> </span> <span style="text-align: right;"> <a href="/es/work/two-bowls/"> Siguiente →
+<span class="work-nav__title">Dos cuencos</span> </a> </span> </nav> </div>  </main> <footer class="footer"> <div class="container footer__row"> <span>Estudio y obra de Florencia.</span> <span>© 2026 · Todos los derechos reservados.</span> </div> </footer> <script>
+      (function () {
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var supportsIO = 'IntersectionObserver' in window;
+
+        var targets = document.querySelectorAll(
+          '.section, .stack, .work-grid, .cluster, .letter, .contact__channels, .cv-list, .press-list, .selection__grid, .footer__row'
+        );
+
+        var reveals = [];
+        targets.forEach(function (el) {
+          for (var i = 0; i < el.children.length; i++) {
+            var child = el.children[i];
+            child.classList.add('reveal');
+            reveals.push(child);
+          }
+        });
+
+        if (reduced || !supportsIO) {
+          reveals.forEach(function (el) { el.classList.add('is-visible'); });
+          return;
+        }
+
+        // Fire for elements already in view, and use a generous rootMargin so
+        // elements just outside the viewport trigger without a real scroll
+        // (and so headless capture tools don't leave them opacity:0).
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px 100% 0px', threshold: 0 }
+        );
+
+        reveals.forEach(function (el) { io.observe(el); });
+      })();
+    </script> </body> </html>

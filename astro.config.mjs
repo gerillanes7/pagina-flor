@@ -1,13 +1,16 @@
 import { defineConfig } from "astro/config";
 import keystatic from "@keystatic/astro";
 import react from "@astrojs/react";
-import node from "@astrojs/node";
+import vercel from "@astrojs/vercel/serverless";
 import { keystaticConfig } from "./keystatic.config";
 
 export default defineConfig({
   site: "https://florencia.example",
   output: "hybrid",
-  adapter: node({ mode: "standalone" }),
+  adapter: vercel({
+    imageService: true,
+    webAnalytics: { enabled: false },
+  }),
   integrations: [react(), keystatic(keystaticConfig)],
   build: {
     inlineStylesheets: "auto",

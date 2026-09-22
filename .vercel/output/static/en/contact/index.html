@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v4.16.19"><title>Florencia — Painting</title><meta name="description" content="Florencia's studio and painting. Acquisitions and commissions."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" hreflang="es" href="https://florencia.example/es//contact/"><link rel="alternate" hreflang="en" href="https://florencia.example/en//contact/"><meta property="og:title" content="Florencia — Painting"><meta property="og:description" content="Florencia's studio and painting. Acquisitions and commissions."><meta property="og:type" content="website"><link rel="stylesheet" href="/_astro/contact.CCYytLDa.css"></head> <body class=""> <a class="skip-link" href="#main">Saltar al contenido</a> <header class="nav" aria-label="Principal"> <div class="nav__row"> <div class="nav__lang" aria-label="Idioma"> <a href="/en/contact/">ES</a> <span class="nav__lang-sep" aria-hidden="true">/</span> <a href="/es/contact/" aria-current="true">EN</a> </div> <a class="nav__brand" href="/en/">Florencia</a> </div> <div class="container"> <nav aria-label="Secciones"> <ul class="nav__links" role="list"> <li> <a class="nav__link" href="/en/">Studio</a> </li><li> <a class="nav__link" href="/en/work/">Work</a> </li><li> <a class="nav__link" href="/en/studio/">Letter</a> </li><li> <a class="nav__link" href="/en/contact/" aria-current="page">Contact</a> </li> </ul> </nav> </div> </header> <main id="main">  <div class="container"> <header class="page-head"> <h1 class="page-head__title">Contact</h1> <p class="page-head__lead">For acquisitions, commissions, or simply to write.</p> </header> </div> <div class="container"> <div class="contact"> <div class="contact__channels"> <div> <span class="label">Email</span> <span class="section-rule" style="margin-top: var(--space-2); margin-bottom: var(--space-3);"></span> <p style="margin: 0;"> <a href="mailto:florencia@florencia.example">florencia@florencia.example</a> </p> </div> <div> <span class="label">Instagram</span> <span class="section-rule" style="margin-top: var(--space-2); margin-bottom: var(--space-3);"></span> <p style="margin: 0;"> <a href="https://instagram.com/florencia" rel="me noopener noreferrer" target="_blank">@florencia</a> </p> </div> <div> <span class="label">Studio</span> <span class="section-rule" style="margin-top: var(--space-2); margin-bottom: var(--space-3);"></span> <p class="muted" style="margin: 0;">Visits by appointment</p> </div> </div> <div> <span class="section-label">Or write to her</span> <span class="section-rule" style="margin-top: var(--space-3); margin-bottom: var(--space-4);"></span> <form action="mailto:florencia@florencia.example" method="post" enctype="text/plain" class="contact__form"> <label> <span class="label">Your name</span> <input type="text" name="name" required autocomplete="name"> </label> <label> <span class="label">Your email</span> <input type="email" name="email" required autocomplete="email"> </label> <label> <span class="label">Subject</span> <input type="text" name="subject"> </label> <label> <span class="label">Message</span> <textarea name="body" rows="6" required></textarea> </label> <p style="margin: 0;"> <button class="btn" type="submit">Send</button> </p> <p class="muted" style="font-size: var(--step--1); margin: 0;">The form sends by mail; your message reaches Florencia directly.</p> </form> </div> </div> </div>  </main> <footer class="footer"> <div class="container footer__row"> <span>Studio and work of Florencia.</span> <span>© 2026 · All rights reserved.</span> </div> </footer> <script>
+      (function () {
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var supportsIO = 'IntersectionObserver' in window;
+
+        var targets = document.querySelectorAll(
+          '.section, .stack, .work-grid, .cluster, .letter, .contact__channels, .cv-list, .press-list, .selection__grid, .footer__row'
+        );
+
+        var reveals = [];
+        targets.forEach(function (el) {
+          for (var i = 0; i < el.children.length; i++) {
+            var child = el.children[i];
+            child.classList.add('reveal');
+            reveals.push(child);
+          }
+        });
+
+        if (reduced || !supportsIO) {
+          reveals.forEach(function (el) { el.classList.add('is-visible'); });
+          return;
+        }
+
+        // Fire for elements already in view, and use a generous rootMargin so
+        // elements just outside the viewport trigger without a real scroll
+        // (and so headless capture tools don't leave them opacity:0).
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px 100% 0px', threshold: 0 }
+        );
+
+        reveals.forEach(function (el) { io.observe(el); });
+      })();
+    </script> </body> </html>
