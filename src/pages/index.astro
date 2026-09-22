@@ -1,3 +1,6 @@
 ---
-return Astro.redirect("/es/");
+return new Response(null, {
+  status: 302,
+  headers: { Location: "/es/" },
+});
 ---
